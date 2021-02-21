@@ -22,8 +22,6 @@ class AMRCharacter : public ACharacter
 public:
 	AMRCharacter();
 
-	/** Returns Mesh1P subobject **/
-	FORCEINLINE USkeletalMeshComponent* GetMesh1P() const { return ArmsMesh; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	FORCEINLINE UCameraComponent* GetFirstPersonCameraComponent() const { return CameraComponent; }
 
@@ -34,10 +32,6 @@ protected:
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
 
 protected:
-	/** Pawn mesh: 1st person view (arms; seen only by self) */
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-	USkeletalMeshComponent* ArmsMesh;
-
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 	UCameraComponent* CameraComponent;

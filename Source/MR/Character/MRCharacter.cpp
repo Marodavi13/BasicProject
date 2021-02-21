@@ -26,18 +26,8 @@ AMRCharacter::AMRCharacter()
 	CameraComponent->SetRelativeLocation(FVector(-39.56f, 1.75f, 64.f)); // Position the camera
 	CameraComponent->bUsePawnControlRotation = true;
 
-	// Create a mesh component that will be used when being viewed from a '1st person' view (when controlling this pawn)
-	ArmsMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMesh1P"));
-	ArmsMesh->SetOnlyOwnerSee(true);
-	ArmsMesh->SetupAttachment(CameraComponent);
-	ArmsMesh->bCastDynamicShadow = false;
-	ArmsMesh->CastShadow = false;
-	ArmsMesh->SetRelativeRotation(FRotator(1.9f, -19.19f, 5.2f));
-	ArmsMesh->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));
-
 	ControlComponent = CreateDefaultSubobject<UMRControlComponent>(TEXT("ControlComponent"));
 	AbilityComponent = CreateDefaultSubobject<UMRAbilityComponent>(TEXT("AbilityComponent"));
-	//DetectionComponent = CreateDefaultSubobject<UMRDetectionComponent>(TEXT("DetectionComponent"));
 }
 
 void AMRCharacter::PreInitializeComponents()
